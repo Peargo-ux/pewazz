@@ -6,11 +6,24 @@
     <title>MGK - Milli Güvenlik Konseyi</title>
     <style>
         body {
-            background: linear-gradient(135deg, #f8ffae 0%, #43c6ac 100%);
+            background: #000;
             font-family: 'Comic Sans MS', cursive, sans-serif;
             text-align: center;
             margin: 0;
             padding: 0;
+            min-height: 100vh;
+            position: relative;
+        }
+        .mgk-bg {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            z-index: 0;
+            opacity: 0.15;
+            object-fit: contain;
+            pointer-events: none;
         }
         .container {
             margin-top: 10vh;
@@ -51,33 +64,12 @@
     </style>
 </head>
 <body>
-    <div class="container">
-        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/6b/Flag_of_Turkey.svg/320px-Flag_of_Turkey.svg.png" alt="MGK" class="mgk-img">
-        <h1>Milli Güvenlik Konseyi (MGK)</h1>
-        <div class="joke" id="joke">
-            MGK, Türkiye'nin en gizemli toplantılarına ev sahipliği yapar!<br>
-            "MGK'da alınan kararlar, çaydan önce mi sonra mı açıklanır?"
-        </div>
-        <button class="btn" onclick="changeJoke()">Bir MGK Esprisi Daha!</button>
-        <p style="margin-top:24px; color:#666; font-size:1rem;">Bu site mizahi amaçlıdır ve resmi bir MGK sitesi değildir.</p>
+    <img src="mgk.png" alt="MGK Arka Plan" class="mgk-bg">
+    <div class="container" style="position:relative; z-index:1; background:rgba(0,0,0,0.7); color:#fff;">
+        <h1 style="font-size:2.7rem; margin-bottom:10px; letter-spacing:2px;">MGK <span style="font-size:1.2rem; color:#bbb;">[Milli Güvenlik Konseyi]</span></h1>
+        <button class="btn" style="margin-top:32px; font-size:1.2rem; background:#5865F2;" onclick="window.open('https://discord.gg/turkcu','_blank')">Discord Sunucumuza Katıl</button>
+        <p style="margin-top:32px; color:#aaa; font-size:1rem;">Bu site resmi bir MGK sitesi değildir.</p>
     </div>
-    <script>
-        const jokes = [
-            'MGK, Türkiye\'nin en gizemli toplantılarına ev sahipliği yapar!<br>"MGK\'da alınan kararlar, çaydan önce mi sonra mı açıklanır?"',
-            'MGK toplantısı: Gündem, çay ve simit!<br>"MGK\'da çay biterse, kararlar askıya alınır."',
-            'MGK üyeleri, gizliliği o kadar iyi korur ki, toplantıdan sonra kendileri bile ne konuştuklarını hatırlamaz!',
-            'MGK: Milli Güvenlik mi, Milli Gülümseme Komitesi mi? 😂',
-            'MGK toplantısında alınan kararlar, WhatsApp grubunda paylaşılmaz!'
-        ];
-        function changeJoke() {
-            const jokeDiv = document.getElementById('joke');
-            let current = jokeDiv.innerHTML;
-            let next;
-            do {
-                next = jokes[Math.floor(Math.random() * jokes.length)];
-            } while (next === current);
-            jokeDiv.innerHTML = next;
-        }
-    </script>
+
 </body>
 </html>
